@@ -1,4 +1,4 @@
-# Thaicom Career API
+# My Career Storytelling
 
 An API service narrating my professional journey, achievements, and transformative projects at Thaicom, built using FastAPI and structured with the MVC pattern.
 
