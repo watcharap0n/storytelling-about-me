@@ -52,6 +52,13 @@ Expose your career milestones via these clear, storytelling endpoints:
 * **Pattern:** MVC (models, services, controllers)
 * **Authentication:** OAuth2 / JWT (planned)
 
+## Authentication Flow (Planned)
+
+1. The client submits login credentials to an authentication endpoint and receives a signed token upon success.
+2. Each subsequent request includes the token in the `Authorization` header.
+3. Middleware or route dependencies verify the token's integrity and extract user information.
+4. Authorized requests proceed to the intended endpoint, while invalid or missing tokens result in an authentication error.
+
 ## Getting Started
 
 1. **Clone Repository**
