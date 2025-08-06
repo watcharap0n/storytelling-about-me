@@ -57,8 +57,8 @@ Expose your career milestones via these clear, storytelling endpoints:
 1. **Clone Repository**
 
 ```bash
-git clone https://github.com/watcharap0n/thaicom-career-api.git
-cd thaicom-career-api
+git clone https://github.com/watcharap0n/storytelling-about-me.git
+cd storytelling-about-me
 ```
 
 2. **Install Dependencies**
