@@ -1,20 +1,22 @@
+"""Application entry point for the career storytelling API."""
+
 from fastapi import FastAPI
 
-app = FastAPI()
-
-# Placeholder: import authentication middleware or dependencies here
-# from app.auth import AuthMiddleware, get_current_user
-
-# Placeholder: add authentication middleware to the application
-# app.add_middleware(AuthMiddleware)
-
-# Placeholder: define authentication dependencies for route protection
-# async def get_current_user():
-#     """Retrieve the current user based on authentication token"""
-#     pass
+from app.controllers.experience_controller import router as experience_router
 
 
-@app.get("/")
-def read_root():
-    """Simple root endpoint"""
-    return {"message": "Welcome to the storytelling API"}
+def create_app() -> FastAPI:
+    """Create and configure the FastAPI application instance."""
+    app = FastAPI(title="My Career Storytelling API", version="1.0.0")
+    app.include_router(experience_router)
+    return app
+
+
+app = create_app()
+
+
+if __name__ == "__main__":
+    # Allows running the app with `python app/main.py`
+    import uvicorn
+
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
