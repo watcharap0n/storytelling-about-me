@@ -1,3 +1,7 @@
 fastapi
 uvicorn
+httpx
+python-dateutil
+PyYAML
+pydantic-settings
 pytest

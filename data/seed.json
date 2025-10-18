@@ -1,0 +1,294 @@
+{
+  "about": {
+    "id": "about_01",
+    "name": "Watcharapon (Kane) Weeraborirak",
+    "title": "AI & Cloud Systems Engineer",
+    "headline": "From models to impact.",
+    "summary": "I turn geospatial and AI research into reliable, cloud-scale systems with measurable outcomes.",
+    "location": "Bangkok, Thailand",
+    "links": {
+      "site": "https://watcharapon.dev",
+      "resume": "https://data.watcharapon.dev",
+      "linkedin": "https://www.linkedin.com/in/watcharapon-weeraborirak",
+      "github": "https://github.com/watcharap0n"
+    }
+  },
+  "pillars": [
+    {
+      "id": "ai_engineering",
+      "title": "AI Engineering",
+      "bullets": [
+        "Latency-sensitive inference with evaluation harnesses, guardrails, cost observability",
+        "LLM orchestration (Bedrock, OpenAI, LangChain, MCP)",
+        "Hybrid retrieval: vector + PostGIS"
+      ]
+    },
+    {
+      "id": "data_engineering",
+      "title": "Data Engineering",
+      "bullets": [
+        "Serverless ETL/ELT with Step Functions, Glue, S3",
+        "PostGIS optimization for raster/vector analytics",
+        "Governance with Lake Formation, schema lineage"
+      ]
+    },
+    {
+      "id": "workflow_automation",
+      "title": "Workflow Automation",
+      "bullets": [
+        "MLflow lifecycle with approvals",
+        "n8n + custom workers for alerts/emails/syncs",
+        "Observability via OpenTelemetry/CloudWatch/Grafana"
+      ]
+    },
+    {
+      "id": "cloud_architecture",
+      "title": "Cloud Architecture",
+      "bullets": [
+        "AWS CDK/CloudFormation blueprints",
+        "CIS/WAF/Well-Architected security",
+        "Edge delivery with CloudFront and global networking"
+      ]
+    }
+  ],
+  "work": [
+    {
+      "slug": "carbon-watch",
+      "title": "Carbon Watch",
+      "subtitle": "Geospatial AI for Forest Integrity",
+      "summary": "Carbon assessment engine with unified ingestion, raster analytics, and reporting.",
+      "description": "Architected a serverless, multi-hop pipeline with Lambda, SageMaker, and PostGIS to transform heterogenous geospatial data into carbon readiness assessments and executive dashboards.",
+      "stack": ["AWS Lambda", "SageMaker", "PostGIS", "Raster Analytics", "CloudWatch"],
+      "kpi": {
+        "latency_reduction_pct": 63,
+        "ops_cost_reduction_pct": 42,
+        "automations": 24
+      }
+    },
+    {
+      "slug": "ai4all-thaicom",
+      "title": "AI4ALL @ Thaicom",
+      "subtitle": "Enterprise GenAI Platform",
+      "summary": "Secure LLM ecosystem with LibreChat, Entra ID, RAG, and policy-based routing.",
+      "description": "Delivered authentication, prompt safety, moderation, and evaluation for internal GenAI adoption spanning Bedrock, OpenAI, and proprietary content.",
+      "stack": ["LibreChat", "AWS Bedrock", "RAG", "SageMaker", "Entra ID", "MCP"],
+      "kpi": {
+        "teams_onboarded": 9,
+        "p95_latency_lt_2s_pct": 95,
+        "sev1_incidents": 0
+      }
+    },
+    {
+      "slug": "easystay-asia",
+      "title": "EasyStay Asia",
+      "subtitle": "Serverless Hospitality Platform",
+      "summary": "Booking + payments + automations; availability sync and BI.",
+      "description": "Led the full-stack build from API to automation, orchestrating reservations, payments, and communications via event-driven services.",
+      "stack": ["Next.js", "AWS Lambda", "DynamoDB", "OPN Payments", "n8n", "CDK"],
+      "kpi": {
+        "booking_time_reduction_pct": 48,
+        "manual_ops_reduction_pct": 70,
+        "automations": 18
+      },
+      "external": {
+        "url": "https://easystay.asia"
+      }
+    },
+    {
+      "slug": "pasa-education",
+      "title": "Pasa Education",
+      "subtitle": "Learning Platform Automation",
+      "summary": "Course management, progress tracking, and billing.",
+      "description": "Delivered a modular LMS with workflow automation, realtime notifications, and analytics on learner behaviour.",
+      "stack": ["Nuxt", "Supabase", "Serverless", "n8n", "Vercel"],
+      "kpi": {
+        "time_to_launch_weeks": 6,
+        "support_tickets_reduction_pct": 55,
+        "completion_lift_pct": 22
+      },
+      "external": {
+        "url": "https://pasaeducation.com"
+      }
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp_mango",
+      "organization": "Mango Consultant",
+      "role": "AI Developer",
+      "period": {
+        "start": "2018-07-01",
+        "end": "2020-07-01"
+      },
+      "location": "Bangkok, Thailand",
+      "highlights": [
+        "Built multilingual chatbot pipelines ingesting Facebook + LINE data with KNN segmentation and Naive Bayes spam filtering",
+        "Delivered face-recognition attendance powered by DLIB and GPU-accelerated inference",
+        "Designed microservices for LINE Developer quotation flows backed by event-driven messaging"
+      ]
+    },
+    {
+      "id": "exp_thaicom",
+      "organization": "Thaicom PLC",
+      "role": "AI Engineer",
+      "period": {
+        "start": "2020-07-01",
+        "end": null
+      },
+      "location": "Bangkok, Thailand",
+      "highlights": [
+        "Engineered async geospatial workflows across Lambda, SageMaker, and S3 powering Carbon Watch",
+        "Built serverless ELT with AWS Glue + PostGIS for automated spatial ingestion and validation",
+        "Integrated secure GenAI access with Entra ID, Bedrock, Anthropic, and OpenAI via LibreChat and MCP"
+      ]
+    },
+    {
+      "id": "exp_freelance",
+      "organization": "Freelance",
+      "role": "Principal Builder",
+      "period": {
+        "start": "2023-01-01",
+        "end": null
+      },
+      "location": "Remote",
+      "highlights": [
+        "Designed serverless booking platforms with integrated payments and automations",
+        "Launched e-learning ecosystems with async workflows and analytics",
+        "Consulted on AI platform roadmaps, governance, and enablement"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skills_ai_ml",
+      "title": "AI & ML",
+      "description": "Production-grade model development, orchestration, and evaluation.",
+      "items": [
+        {"name": "Python", "level": 5, "notes": "FastAPI, asyncio, ML tooling"},
+        {"name": "LLM Deployment", "level": 5, "notes": "Bedrock, SageMaker, Vertex, OpenAI"},
+        {"name": "LangChain / MCP", "level": 4, "notes": "Agent frameworks with reproducible prompts"},
+        {"name": "MLflow", "level": 4, "notes": "Lifecycle tracking and rollout automation"}
+      ]
+    },
+    {
+      "id": "skills_data_geospatial",
+      "title": "Data & Geospatial",
+      "description": "Spatial analytics pipelines, warehousing, and governance.",
+      "items": [
+        {"name": "PostGIS", "level": 5, "notes": "Raster, vector, topology, performance"},
+        {"name": "AWS Glue", "level": 4, "notes": "Data lake orchestration with governance"},
+        {"name": "ETL / ELT", "level": 4, "notes": "Event-driven transformations with Step Functions"},
+        {"name": "MongoDB", "level": 3, "notes": "Multi-tenant data models"}
+      ]
+    },
+    {
+      "id": "skills_cloud_infra",
+      "title": "Cloud & Infrastructure",
+      "description": "Platform design focused on reliability, security, and delivery speed.",
+      "items": [
+        {"name": "AWS Serverless", "level": 5, "notes": "Lambda, API Gateway, EventBridge, CloudFront"},
+        {"name": "SageMaker", "level": 4, "notes": "Pipelines, feature store, inference"},
+        {"name": "CDK / CloudFormation", "level": 4, "notes": "Reusable blueprints with CI/CD"},
+        {"name": "Terraform", "level": 3, "notes": "Multi-cloud modules"}
+      ]
+    },
+    {
+      "id": "skills_frameworks",
+      "title": "Frameworks & Tooling",
+      "description": "Frontend and backend frameworks with DX and performance in mind.",
+      "items": [
+        {"name": "Next.js / React", "level": 5, "notes": "App Router, edge rendering"},
+        {"name": "TypeScript", "level": 5, "notes": "Strict typing, API contracts"},
+        {"name": "FastAPI", "level": 4, "notes": "Async microservices"},
+        {"name": "Nuxt / Vue", "level": 3, "notes": "Hybrid rendering for content sites"}
+      ]
+    },
+    {
+      "id": "skills_automation_ops",
+      "title": "Automation & Ops",
+      "description": "Event-driven automation, observability, and workflow tooling.",
+      "items": [
+        {"name": "n8n", "level": 4, "notes": "Composable automation with custom nodes"},
+        {"name": "Observability", "level": 4, "notes": "OpenTelemetry, CloudWatch, Grafana"},
+        {"name": "CI/CD", "level": 4, "notes": "GitHub Actions, CodeBuild, GitLab"},
+        {"name": "Incident Response", "level": 3, "notes": "Runbooks, rotations, SLAs"}
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert_ai_practitioner",
+      "name": "AWS Certified AI Practitioner",
+      "issuer": "Amazon Web Services",
+      "issued_at": "2024-11-01",
+      "notes": "Validates generative AI foundations, responsible AI, and deployment patterns.",
+      "credential_url": null
+    },
+    {
+      "id": "cert_ai_practitioner_early",
+      "name": "AWS Certified AI Practitioner — Early Adopter",
+      "issuer": "Amazon Web Services",
+      "issued_at": "2024-11-15",
+      "notes": "Recognises beta cohort participation with applied generative AI labs.",
+      "credential_url": null
+    },
+    {
+      "id": "cert_cloud_practitioner",
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "issued_at": "2022-08-01",
+      "notes": "Foundation in cloud economics, architecture, and security.",
+      "credential_url": null
+    }
+  ],
+  "continuing_education": [
+    {
+      "id": "train_security_engineering",
+      "name": "AWS Security Engineering on AWS",
+      "issuer": "BSI Training Academy",
+      "period": "2022-08-01/2023-11-01"
+    },
+    {
+      "id": "train_developing_on_aws",
+      "name": "Developing on AWS",
+      "issuer": "Amazon Web Services",
+      "period": "2022-08-01/2023-11-01"
+    },
+    {
+      "id": "train_technical_essentials",
+      "name": "AWS Technical Essentials",
+      "issuer": "Amazon Web Services",
+      "period": "2022-08-01/2023-11-01"
+    }
+  ],
+  "availability": {
+    "generated_at": "2024-10-01T08:00:00+07:00",
+    "time_zone": "Asia/Bangkok",
+    "free": [
+      {"start": "2024-10-18T09:00:00+07:00", "end": "2024-10-18T11:00:00+07:00"},
+      {"start": "2024-10-19T14:00:00+07:00", "end": "2024-10-19T15:30:00+07:00"},
+      {"start": "2024-10-20T10:00:00+07:00", "end": "2024-10-20T12:30:00+07:00"}
+    ]
+  },
+  "contact": {
+    "channels": {
+      "email": "wera.watcharapon@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/watcharapon-weeraborirak",
+      "github": "https://github.com/watcharap0n"
+    }
+  },
+  "faq": [
+    {
+      "id": "faq_focus",
+      "question": "What is Kane focused on right now?",
+      "answer": "I’m currently designing geospatial AI and GenAI platforms for large teams while helping startups ship serverless products faster.",
+      "tags": ["general"]
+    },
+    {
+      "id": "faq_availability",
+      "question": "Is Kane available for new consulting engagements?",
+      "answer": "I usually take on 1–2 high-impact engagements per quarter. Send over your goals and timeline for a fit check.",
+      "tags": ["recruiter", "general"]
+    }
+  ]
+}

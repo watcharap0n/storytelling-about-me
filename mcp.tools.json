@@ -1,0 +1,109 @@
+[
+  {
+    "name": "get_about",
+    "description": "Get about/profile headline and links.",
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "endpoint": {"method": "GET", "path": "/v1/about"}
+  },
+  {
+    "name": "list_pillars",
+    "description": "List capability pillars with bullets.",
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "endpoint": {"method": "GET", "path": "/v1/pillars"}
+  },
+  {
+    "name": "list_work",
+    "description": "List case studies with KPIs.",
+    "input_schema": {
+      "type": "object",
+      "properties": {"limit": {"type": "integer", "minimum": 1, "maximum": 20}},
+      "additionalProperties": false
+    },
+    "endpoint": {"method": "GET", "path": "/v1/work"}
+  },
+  {
+    "name": "get_work",
+    "description": "Get a specific case study by slug.",
+    "input_schema": {
+      "type": "object",
+      "required": ["slug"],
+      "properties": {"slug": {"type": "string"}},
+      "additionalProperties": false
+    },
+    "endpoint": {"method": "GET", "path": "/v1/work/{slug}"}
+  },
+  {
+    "name": "list_experience",
+    "description": "Timeline roles and highlights.",
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "endpoint": {"method": "GET", "path": "/v1/experience"}
+  },
+  {
+    "name": "list_skills",
+    "description": "Grouped skills with proficiency 1–5.",
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "endpoint": {"method": "GET", "path": "/v1/skills"}
+  },
+  {
+    "name": "list_certifications",
+    "description": "Credentials and continuing education.",
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "endpoint": {"method": "GET", "path": "/v1/certifications"}
+  },
+  {
+    "name": "get_availability",
+    "description": "Return free/busy windows for recruiters.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "range": {"type": "string", "description": "ISO interval e.g. 2025-10-18/2025-11-18"}
+      },
+      "additionalProperties": false
+    },
+    "endpoint": {"method": "GET", "path": "/v1/availability"}
+  },
+  {
+    "name": "send_contact_message",
+    "description": "Submit a contact message and create a ticket via n8n.",
+    "input_schema": {
+      "type": "object",
+      "required": ["name", "email", "message"],
+      "properties": {
+        "name": {"type": "string"},
+        "email": {"type": "string", "format": "email"},
+        "message": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "endpoint": {"method": "POST", "path": "/v1/contact/message"}
+  },
+  {
+    "name": "ask_portfolio_bot",
+    "description": "Ask a question about Kane’s work; returns concise answer + source sections.",
+    "input_schema": {
+      "type": "object",
+      "required": ["question"],
+      "properties": {
+        "question": {"type": "string"},
+        "audience": {"type": "string", "enum": ["recruiter", "engineer", "general"], "default": "general"}
+      },
+      "additionalProperties": false
+    },
+    "endpoint": {"method": "POST", "path": "/v1/chat/ask"}
+  },
+  {
+    "name": "mcp_execute",
+    "description": "Forward an MCP-style tool call to n8n (if configured) or echo locally for development.",
+    "input_schema": {
+      "type": "object",
+      "required": ["tool"],
+      "properties": {
+        "tool": {"type": "string"},
+        "params": {"type": "object", "additionalProperties": true, "default": {}},
+        "context": {"type": "object", "additionalProperties": true}
+      },
+      "additionalProperties": false
+    },
+    "endpoint": {"method": "POST", "path": "/v1/mcp/execute"}
+  }
+]

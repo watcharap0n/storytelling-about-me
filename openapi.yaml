@@ -1,0 +1,569 @@
+openapi: 3.1.0
+info:
+  title: Kane Portfolio API
+  version: 1.0.0
+servers:
+  - url: https://api.watcharapon.dev
+  - url: http://localhost:8000
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+  schemas:
+    LinkSet:
+      type: object
+      properties:
+        site:
+          type: string
+          format: uri
+        resume:
+          type: string
+          format: uri
+        linkedin:
+          type: string
+          format: uri
+        github:
+          type: string
+          format: uri
+    About:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        headline:
+          type: string
+        summary:
+          type: string
+        location:
+          type: string
+        links:
+          $ref: '#/components/schemas/LinkSet'
+      required: [id, name, title, headline, summary, location, links]
+    Pillar:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        bullets:
+          type: array
+          items:
+            type: string
+      required: [id, title, bullets]
+    WorkKPI:
+      type: object
+      properties:
+        latency_reduction_pct:
+          type: integer
+        ops_cost_reduction_pct:
+          type: integer
+        automations:
+          type: integer
+        teams_onboarded:
+          type: integer
+        p95_latency_lt_2s_pct:
+          type: integer
+        sev1_incidents:
+          type: integer
+        booking_time_reduction_pct:
+          type: integer
+        manual_ops_reduction_pct:
+          type: integer
+        time_to_launch_weeks:
+          type: integer
+        support_tickets_reduction_pct:
+          type: integer
+        completion_lift_pct:
+          type: integer
+    WorkExternal:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+    WorkItem:
+      type: object
+      properties:
+        slug:
+          type: string
+        title:
+          type: string
+        subtitle:
+          type: string
+        summary:
+          type: string
+        description:
+          type: string
+        stack:
+          type: array
+          items:
+            type: string
+        kpi:
+          $ref: '#/components/schemas/WorkKPI'
+        external:
+          $ref: '#/components/schemas/WorkExternal'
+      required: [slug, title, subtitle, summary, stack, kpi]
+    Period:
+      type: object
+      properties:
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+          nullable: true
+      required: [start]
+    ExperienceItem:
+      type: object
+      properties:
+        id:
+          type: string
+        organization:
+          type: string
+        role:
+          type: string
+        period:
+          $ref: '#/components/schemas/Period'
+        location:
+          type: string
+        highlights:
+          type: array
+          items:
+            type: string
+      required: [id, organization, role, period, location, highlights]
+    SkillItem:
+      type: object
+      properties:
+        name:
+          type: string
+        level:
+          type: integer
+          minimum: 1
+          maximum: 5
+        notes:
+          type: string
+      required: [name, level]
+    SkillGroup:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkillItem'
+      required: [id, title, description, items]
+    Certification:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        issuer:
+          type: string
+        issued_at:
+          type: string
+          format: date-time
+        notes:
+          type: string
+        credential_url:
+          type: string
+          format: uri
+          nullable: true
+      required: [id, name, issuer, issued_at]
+    ContinuingEducation:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        issuer:
+          type: string
+        period:
+          type: string
+      required: [id, name, issuer, period]
+    ContactMessage:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        message:
+          type: string
+        honeypot:
+          type: string
+      required: [name, email, message]
+    AvailabilityWindow:
+      type: object
+      properties:
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+      required: [start, end]
+    AvailabilityHold:
+      type: object
+      properties:
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        requester:
+          type: string
+      required: [start, end]
+    ChatRequest:
+      type: object
+      properties:
+        question:
+          type: string
+        audience:
+          type: string
+          enum: [recruiter, engineer, general]
+      required: [question]
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            correlation_id:
+              type: string
+          required: [code, message]
+paths:
+  /healthz:
+    get:
+      tags: [System]
+      summary: Health check
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  timestamp:
+                    type: string
+  /v1/about:
+    get:
+      tags: [About]
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: About data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/About'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /v1/pillars:
+    get:
+      tags: [Pillars]
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Pillars list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Pillar'
+  /v1/work:
+    get:
+      tags: [Work]
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 20
+      responses:
+        '200':
+          description: Work list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/WorkItem'
+  /v1/work/{slug}:
+    get:
+      tags: [Work]
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Work detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkItem'
+        '404':
+          description: Not found
+  /v1/experience:
+    get:
+      tags: [Experience]
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Experience timeline
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExperienceItem'
+  /v1/skills:
+    get:
+      tags: [Skills]
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Skills groups
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SkillGroup'
+  /v1/certifications:
+    get:
+      tags: [Certifications]
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Certifications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Certification'
+                  continuing_education:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ContinuingEducation'
+  /v1/contact:
+    get:
+      tags: [Contact]
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Contact channels
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channels:
+                    type: object
+                    additionalProperties: true
+  /v1/contact/message:
+    post:
+      tags: [Contact]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactMessage'
+      responses:
+        '200':
+          description: Message accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ticket_id:
+                    type: string
+                  submitted_at:
+                    type: string
+                    format: date-time
+  /v1/availability:
+    get:
+      tags: [Availability]
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: query
+          name: range
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Availability windows
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  generated_at:
+                    type: string
+                    format: date-time
+                  time_zone:
+                    type: string
+                  free:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AvailabilityWindow'
+  /v1/availability/hold:
+    post:
+      tags: [Availability]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailabilityHold'
+      responses:
+        '200':
+          description: Hold created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hold_id:
+                    type: string
+                  expires_at:
+                    type: string
+                    format: date-time
+  /v1/chat/ask:
+    post:
+      tags: [Chat]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Chat answer
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  answer:
+                    type: string
+                  sources:
+                    type: array
+                    items:
+                      type: string
+                  suggestions:
+                    type: array
+                    items:
+                      type: string
+                  events:
+                    type: array
+                    items:
+                      type: object
+  /v1/meta:
+    get:
+      tags: [System]
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: API metadata
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                  environment:
+                    type: string
+  /v1:
+    get:
+      tags: [System]
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Resource index
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        method:
+                          type: string
+                        path:
+                          type: string
+                        description:
+                          type: string
+security:
+  - ApiKeyAuth: []

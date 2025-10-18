@@ -1,30 +1,27 @@
-"""Controllers exposing career storytelling endpoints."""
+"""Experience endpoints."""
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
-from app.models.experience import Experience
-from app.services.experience_service import (
-    get_mango_experience,
-    get_thaicom_ai_experience,
-    get_thaicom_genai_experience,
-)
+from app.core.middleware import verify_api_key
+from app.models.schemas import ExperienceResponse, ExperienceItem, Period
+from app.services.data_service import get_experience
 
-router = APIRouter(prefix="/experience", tags=["experience"])
+router = APIRouter(prefix="/v1/experience", tags=["Experience"], dependencies=[Depends(verify_api_key)])
 
 
-@router.get("/mango", response_model=Experience)
-def read_mango_experience() -> Experience:
-    """Endpoint returning Mango Consultant experience."""
-    return get_mango_experience()
-
-
-@router.get("/thaicom/ai", response_model=Experience)
-def read_thaicom_ai_experience() -> Experience:
-    """Endpoint returning Thaicom AI engineering experience."""
-    return get_thaicom_ai_experience()
-
-
-@router.get("/thaicom/genai", response_model=Experience)
-def read_thaicom_genai_experience() -> Experience:
-    """Endpoint returning GenAI & AI4ALL initiative experience."""
-    return get_thaicom_genai_experience()
+@router.get("", response_model=ExperienceResponse)
+async def list_experience() -> ExperienceResponse:
+    items = []
+    for exp in get_experience():
+        period = Period(start=exp["period"]["start"], end=exp["period"]["end"])
+        items.append(
+            ExperienceItem(
+                id=exp["id"],
+                organization=exp["organization"],
+                role=exp["role"],
+                period=period,
+                location=exp["location"],
+                highlights=exp["highlights"],
+            )
+        )
+    return ExperienceResponse(items=items)
