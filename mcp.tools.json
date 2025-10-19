@@ -33,6 +33,17 @@
     "endpoint": {"method": "GET", "path": "/v1/work/{slug}"}
   },
   {
+    "name": "get_work_content",
+    "description": "Get long-form markdown & detail content for a specific case study by slug.",
+    "input_schema": {
+      "type": "object",
+      "required": ["slug"],
+      "properties": {"slug": {"type": "string"}},
+      "additionalProperties": false
+    },
+    "endpoint": {"method": "GET", "path": "/v1/work/{slug}/content"}
+  },
+  {
     "name": "list_experience",
     "description": "Timeline roles and highlights.",
     "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},

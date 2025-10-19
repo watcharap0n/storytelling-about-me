@@ -3,8 +3,9 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.core.middleware import verify_api_key
-from app.models.schemas import WorkListResponse, WorkItem
+from app.models.schemas import WorkListResponse, WorkItem, WorkContentResponse
 from app.services.data_service import get_work_item, get_work_items
+from app.services.content_service import get_work_content as _get_work_content
 
 router = APIRouter(prefix="/v1/work", tags=["Work"], dependencies=[Depends(verify_api_key)])
 
@@ -21,3 +22,12 @@ async def get_work(slug: str) -> WorkItem:
     if not item:
         raise HTTPException(status_code=404, detail={"code": "ERR_NOT_FOUND", "message": "Work item not found."})
     return WorkItem(**item)
+
+
+@router.get("/{slug}/content", response_model=WorkContentResponse)
+async def get_work_longform(slug: str) -> WorkContentResponse:
+    try:
+        data = _get_work_content(slug)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail={"code": "ERR_NOT_FOUND", "message": "Content not found."})
+    return WorkContentResponse(**data)

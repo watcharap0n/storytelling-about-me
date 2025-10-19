@@ -209,3 +209,10 @@ class MCPResponse(BaseModel):
     forwarded: bool
     result: Dict[str, Any] = Field(default_factory=dict)
     meta: Optional[Dict[str, Any]] = None
+
+
+# New: long-form work content
+class WorkContentResponse(BaseModel):
+    slug: str
+    format: str = Field(description="Content format, e.g., markdown or html")
+    content: str

@@ -31,7 +31,7 @@ def _collect_corpus() -> List[tuple[str, str]]:
 CORPUS = _collect_corpus()
 
 
-def answer_question(question: str, audience: str) -> tuple[str, List[str], List[str]]:
+def answer_question(question: str, audience: str) -> tuple[str, List[str], List[str], List[dict]]:
     question_lower = question.lower()
     matches = [entry for entry in CORPUS if any(word in entry[1].lower() for word in question_lower.split())]
     if not matches:

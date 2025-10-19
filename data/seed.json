@@ -10,7 +10,9 @@
       "site": "https://watcharapon.dev",
       "resume": "https://data.watcharapon.dev",
       "linkedin": "https://www.linkedin.com/in/watcharapon-weeraborirak",
-      "github": "https://github.com/watcharap0n"
+      "github": "https://github.com/watcharap0n",
+      "facebook": "https://www.facebook.com/watcharapon.egn",
+      "youtube": "https://www.youtube.com/channel/UC_FWUbq4dPoXRBEpCfKQyDw"
     }
   },
   "pillars": [
@@ -53,12 +55,43 @@
   ],
   "work": [
     {
+      "slug": "watcharapon-dev",
+      "title": "watcharapon.dev",
+      "subtitle": "AI-Driven Personal Portfolio Ecosystem",
+      "summary": "Cinematic portfolio engineered with Next.js 14, integrated AI assistant, and n8n automation backend.",
+      "description": "Developed an intelligent, cinematic portfolio platform serving as the central hub for AI, automation, and booking services. Built with Next.js 14 (App Router), Tailwind CSS, and react-three-fiber for real-time 3D scenes, it connects seamlessly to an MCP-enabled assistant API, n8n workflows, and Cal.com calendar to provide 24/7 interactive engagement.",
+      "stack": [
+        "Next.js 14",
+        "Tailwind CSS",
+        "react-three-fiber",
+        "Framer Motion",
+        "TypeScript",
+        "n8n",
+        "Vercel",
+        "Docker",
+        "Assistant API (MCP)"
+      ],
+      "kpi": {
+        "page_performance_score": 95,
+        "assistant_uptime_pct": 99.9,
+        "automations": 12
+      }
+    },
+    {
       "slug": "carbon-watch",
       "title": "Carbon Watch",
       "subtitle": "Geospatial AI for Forest Integrity",
       "summary": "Carbon assessment engine with unified ingestion, raster analytics, and reporting.",
       "description": "Architected a serverless, multi-hop pipeline with Lambda, SageMaker, and PostGIS to transform heterogenous geospatial data into carbon readiness assessments and executive dashboards.",
-      "stack": ["AWS Lambda", "SageMaker", "PostGIS", "Raster Analytics", "CloudWatch"],
+      "stack": [
+        "AWS Lambda",
+        "SageMaker",
+        "PostGIS",
+        "Raster Analytics",
+        "CloudWatch",
+        "CDK",
+        "S3"
+      ],
       "kpi": {
         "latency_reduction_pct": 63,
         "ops_cost_reduction_pct": 42,
@@ -68,14 +101,27 @@
     {
       "slug": "ai4all-thaicom",
       "title": "AI4ALL @ Thaicom",
-      "subtitle": "Enterprise GenAI Platform",
-      "summary": "Secure LLM ecosystem with LibreChat, Entra ID, RAG, and policy-based routing.",
-      "description": "Delivered authentication, prompt safety, moderation, and evaluation for internal GenAI adoption spanning Bedrock, OpenAI, and proprietary content.",
-      "stack": ["LibreChat", "AWS Bedrock", "RAG", "SageMaker", "Entra ID", "MCP"],
+      "subtitle": "Enterprise GenAI Ecosystem",
+      "summary": "Unified MCP and OpenWebUI architecture for secure, multi-model AI access across the organization.",
+      "stack": [
+        "LibreChat",
+        "AWS Bedrock",
+        "RAG",
+        "SageMaker",
+        "Entra ID",
+        "MCP",
+        "OpenWebUI",
+        "PostgreSQL",
+        "Azure Entra ID",
+        "Anthropic",
+        "OpenAI",
+        "Gemini",
+        "Claude"
+      ],
       "kpi": {
-        "teams_onboarded": 9,
-        "p95_latency_lt_2s_pct": 95,
-        "sev1_incidents": 0
+        "latency_reduction_pct": 38,
+        "internal_users": 200,
+        "cost_reduction_pct": 27
       }
     },
     {
@@ -84,7 +130,14 @@
       "subtitle": "Serverless Hospitality Platform",
       "summary": "Booking + payments + automations; availability sync and BI.",
       "description": "Led the full-stack build from API to automation, orchestrating reservations, payments, and communications via event-driven services.",
-      "stack": ["Next.js", "AWS Lambda", "DynamoDB", "OPN Payments", "n8n", "CDK"],
+      "stack": [
+        "Next.js",
+        "AWS Lambda",
+        "DynamoDB",
+        "OPN Payments",
+        "n8n",
+        "CDK"
+      ],
       "kpi": {
         "booking_time_reduction_pct": 48,
         "manual_ops_reduction_pct": 70,
@@ -100,7 +153,13 @@
       "subtitle": "Learning Platform Automation",
       "summary": "Course management, progress tracking, and billing.",
       "description": "Delivered a modular LMS with workflow automation, realtime notifications, and analytics on learner behaviour.",
-      "stack": ["Nuxt", "Supabase", "Serverless", "n8n", "Vercel"],
+      "stack": [
+        "Nuxt",
+        "Supabase",
+        "Serverless",
+        "n8n",
+        "Vercel"
+      ],
       "kpi": {
         "time_to_launch_weeks": 6,
         "support_tickets_reduction_pct": 55,
@@ -164,10 +223,26 @@
       "title": "AI & ML",
       "description": "Production-grade model development, orchestration, and evaluation.",
       "items": [
-        {"name": "Python", "level": 5, "notes": "FastAPI, asyncio, ML tooling"},
-        {"name": "LLM Deployment", "level": 5, "notes": "Bedrock, SageMaker, Vertex, OpenAI"},
-        {"name": "LangChain / MCP", "level": 4, "notes": "Agent frameworks with reproducible prompts"},
-        {"name": "MLflow", "level": 4, "notes": "Lifecycle tracking and rollout automation"}
+        {
+          "name": "Python",
+          "level": 5,
+          "notes": "FastAPI, asyncio, ML tooling"
+        },
+        {
+          "name": "LLM Deployment",
+          "level": 5,
+          "notes": "Bedrock, SageMaker, Vertex, OpenAI"
+        },
+        {
+          "name": "LangChain / MCP",
+          "level": 4,
+          "notes": "Agent frameworks with reproducible prompts"
+        },
+        {
+          "name": "MLflow",
+          "level": 4,
+          "notes": "Lifecycle tracking and rollout automation"
+        }
       ]
     },
     {
@@ -175,10 +250,31 @@
       "title": "Data & Geospatial",
       "description": "Spatial analytics pipelines, warehousing, and governance.",
       "items": [
-        {"name": "PostGIS", "level": 5, "notes": "Raster, vector, topology, performance"},
-        {"name": "AWS Glue", "level": 4, "notes": "Data lake orchestration with governance"},
-        {"name": "ETL / ELT", "level": 4, "notes": "Event-driven transformations with Step Functions"},
-        {"name": "MongoDB", "level": 3, "notes": "Multi-tenant data models"}
+        {
+          "name": "PostGIS",
+          "level": 5,
+          "notes": "Raster, vector, topology, performance"
+        },
+        {
+          "name": "Tile services",
+          "level": 4,
+          "notes": "MapServer, GeoServer, XYZ tiles, Titiler, TIPG, STAC"
+        },
+        {
+          "name": "AWS Glue",
+          "level": 4,
+          "notes": "Data lake orchestration with governance"
+        },
+        {
+          "name": "ETL / ELT",
+          "level": 4,
+          "notes": "Event-driven transformations with Step Functions"
+        },
+        {
+          "name": "MongoDB",
+          "level": 3,
+          "notes": "Multi-tenant data models"
+        }
       ]
     },
     {
@@ -186,10 +282,26 @@
       "title": "Cloud & Infrastructure",
       "description": "Platform design focused on reliability, security, and delivery speed.",
       "items": [
-        {"name": "AWS Serverless", "level": 5, "notes": "Lambda, API Gateway, EventBridge, CloudFront"},
-        {"name": "SageMaker", "level": 4, "notes": "Pipelines, feature store, inference"},
-        {"name": "CDK / CloudFormation", "level": 4, "notes": "Reusable blueprints with CI/CD"},
-        {"name": "Terraform", "level": 3, "notes": "Multi-cloud modules"}
+        {
+          "name": "AWS Serverless",
+          "level": 5,
+          "notes": "Lambda, API Gateway, EventBridge, CloudFront"
+        },
+        {
+          "name": "SageMaker",
+          "level": 4,
+          "notes": "Pipelines, feature store, inference"
+        },
+        {
+          "name": "CDK / CloudFormation",
+          "level": 4,
+          "notes": "Reusable blueprints with CI/CD"
+        },
+        {
+          "name": "Terraform",
+          "level": 3,
+          "notes": "Multi-cloud modules"
+        }
       ]
     },
     {
@@ -197,10 +309,26 @@
       "title": "Frameworks & Tooling",
       "description": "Frontend and backend frameworks with DX and performance in mind.",
       "items": [
-        {"name": "Next.js / React", "level": 5, "notes": "App Router, edge rendering"},
-        {"name": "TypeScript", "level": 5, "notes": "Strict typing, API contracts"},
-        {"name": "FastAPI", "level": 4, "notes": "Async microservices"},
-        {"name": "Nuxt / Vue", "level": 3, "notes": "Hybrid rendering for content sites"}
+        {
+          "name": "Next.js / React",
+          "level": 5,
+          "notes": "App Router, edge rendering"
+        },
+        {
+          "name": "TypeScript",
+          "level": 5,
+          "notes": "Strict typing, API contracts"
+        },
+        {
+          "name": "FastAPI",
+          "level": 4,
+          "notes": "Async microservices"
+        },
+        {
+          "name": "Nuxt / Vue",
+          "level": 3,
+          "notes": "Hybrid rendering for content sites"
+        }
       ]
     },
     {
@@ -208,10 +336,26 @@
       "title": "Automation & Ops",
       "description": "Event-driven automation, observability, and workflow tooling.",
       "items": [
-        {"name": "n8n", "level": 4, "notes": "Composable automation with custom nodes"},
-        {"name": "Observability", "level": 4, "notes": "OpenTelemetry, CloudWatch, Grafana"},
-        {"name": "CI/CD", "level": 4, "notes": "GitHub Actions, CodeBuild, GitLab"},
-        {"name": "Incident Response", "level": 3, "notes": "Runbooks, rotations, SLAs"}
+        {
+          "name": "n8n",
+          "level": 4,
+          "notes": "Composable automation with custom nodes"
+        },
+        {
+          "name": "Observability",
+          "level": 4,
+          "notes": "OpenTelemetry, CloudWatch, Grafana"
+        },
+        {
+          "name": "CI/CD",
+          "level": 4,
+          "notes": "GitHub Actions, CodeBuild, GitLab"
+        },
+        {
+          "name": "Incident Response",
+          "level": 3,
+          "notes": "Runbooks, rotations, SLAs"
+        }
       ]
     }
   ],
@@ -222,7 +366,7 @@
       "issuer": "Amazon Web Services",
       "issued_at": "2024-11-01",
       "notes": "Validates generative AI foundations, responsible AI, and deployment patterns.",
-      "credential_url": null
+      "credential_url": "https://www.credly.com/earner/earned/badge/53bc46a4-7c86-4a98-a099-407e4d6c3f5d"
     },
     {
       "id": "cert_ai_practitioner_early",
@@ -230,7 +374,7 @@
       "issuer": "Amazon Web Services",
       "issued_at": "2024-11-15",
       "notes": "Recognises beta cohort participation with applied generative AI labs.",
-      "credential_url": null
+      "credential_url": "https://www.credly.com/badges/7baf4395-2d32-40bd-a558-73aa54ee0a47/public_url"
     },
     {
       "id": "cert_cloud_practitioner",
@@ -238,7 +382,30 @@
       "issuer": "Amazon Web Services",
       "issued_at": "2022-08-01",
       "notes": "Foundation in cloud economics, architecture, and security.",
-      "credential_url": null
+      "credential_url": "https://www.credly.com/earner/earned/badge/e4fd6690-0dae-4161-bb1d-0757213d0302"
+    },
+    {
+      "id": "cert_voxy_intermediate_2023",
+      "name": "Voxy Proficiency Achievement Certificate – Intermediate",
+      "issuer": "Voxy",
+      "issued_at": "2023-11-01",
+      "notes": "Certificate ID 63e7a1f7750e7416405e272e",
+      "credential_url": "https://app.voxy.com/certificates/proficiency-test/63e7a1f7750e7416405e272e/"
+    },
+    {
+      "id": "cert_bsi_security_engineering",
+      "name": "AWS Security Engineering on AWS",
+      "issuer": "BSI Training Academy",
+      "issued_at": "2023-11-01",
+      "notes": "Issued by Udosak Suntithikavong; Certificate T-99366400-27",
+      "credential_url": "https://drive.google.com/file/d/1uqGYEM08uMic5T58h9FqmYIt2rRSVokV/view?usp=share_link"
+    },
+    {
+      "id": "cert_nstda_itc19",
+      "name": "The 19th Information Technology Contest of Thailand — Certificate",
+      "issuer": "National Science and Technology Development Agency (NSTDA)",
+      "issued_at": "2020-03-31",
+      "notes": "National-level competition certificate"
     }
   ],
   "continuing_education": [
@@ -259,15 +426,60 @@
       "name": "AWS Technical Essentials",
       "issuer": "Amazon Web Services",
       "period": "2022-08-01/2023-11-01"
+    },
+    {
+      "id": "train_aws_cpe_day",
+      "name": "AWS Cloud Practitioner Essentials Day",
+      "issuer": "Amazon Web Services",
+      "period": "2022-08-01/2023-11-01"
+    },
+    {
+      "id": "train_voxy_intermediate",
+      "name": "Voxy Proficiency Achievement Certificate – Intermediate",
+      "issuer": "Voxy",
+      "period": "2022-08-01/2023-11-01"
+    },
+    {
+      "id": "train_nro_inventors_day_2020",
+      "name": "Inventor's Day 2020 — Research Presentation",
+      "issuer": "National Research Office",
+      "period": "2020-02-01/2020-02-29"
+    },
+    {
+      "id": "train_sau_english_test_course_2020_03",
+      "name": "SAU English Test Course",
+      "issuer": "Southeast Asia University",
+      "period": "2020-03-01/2020-03-31"
+    },
+    {
+      "id": "train_nstda_itc19",
+      "name": "The 19th Information Technology Contest of Thailand — Great Commission",
+      "issuer": "National Science and Technology Development Agency (NSTDA)",
+      "period": "2019-08-01/2020-03-31"
+    },
+    {
+      "id": "train_nectec_2019_03",
+      "name": "NECTEC Program/Workshop",
+      "issuer": "NECTEC",
+      "period": "2019-03-01/2019-03-31"
     }
   ],
   "availability": {
     "generated_at": "2024-10-01T08:00:00+07:00",
     "time_zone": "Asia/Bangkok",
     "free": [
-      {"start": "2024-10-18T09:00:00+07:00", "end": "2024-10-18T11:00:00+07:00"},
-      {"start": "2024-10-19T14:00:00+07:00", "end": "2024-10-19T15:30:00+07:00"},
-      {"start": "2024-10-20T10:00:00+07:00", "end": "2024-10-20T12:30:00+07:00"}
+      {
+        "start": "2024-10-18T09:00:00+07:00",
+        "end": "2024-10-18T11:00:00+07:00"
+      },
+      {
+        "start": "2024-10-19T14:00:00+07:00",
+        "end": "2024-10-19T15:30:00+07:00"
+      },
+      {
+        "start": "2024-10-20T10:00:00+07:00",
+        "end": "2024-10-20T12:30:00+07:00"
+      }
     ]
   },
   "contact": {
@@ -282,13 +494,18 @@
       "id": "faq_focus",
       "question": "What is Kane focused on right now?",
       "answer": "I’m currently designing geospatial AI and GenAI platforms for large teams while helping startups ship serverless products faster.",
-      "tags": ["general"]
+      "tags": [
+        "general"
+      ]
     },
     {
       "id": "faq_availability",
       "question": "Is Kane available for new consulting engagements?",
       "answer": "I usually take on 1–2 high-impact engagements per quarter. Send over your goals and timeline for a fit check.",
-      "tags": ["recruiter", "general"]
+      "tags": [
+        "recruiter",
+        "general"
+      ]
     }
   ]
 }

@@ -25,6 +25,12 @@ def test_work_detail():
     assert response.json()["slug"] == "carbon-watch"
 
 
+def test_work_watcharapon_dev_detail():
+    response = client.get("/v1/work/watcharapon-dev", headers=headers)
+    assert response.status_code == 200
+    assert response.json()["slug"] == "watcharapon-dev"
+
+
 def test_contact_message_validation():
     response = client.post(
         "/v1/contact/message",

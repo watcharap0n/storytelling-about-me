@@ -20,6 +20,7 @@ from app.services.data_service import (
 from app.services.availability_service import filter_availability
 from app.services.chat_service import answer_question
 from app.services.contact_service import submit_contact_message
+from app.services.content_service import get_work_content  # added
 
 
 def _load_mcp_tools() -> List[Dict[str, Any]]:
@@ -91,6 +92,15 @@ async def _execute_local_tool(name: str, arguments: Dict[str, Any]) -> Tuple[boo
             if not item:
                 return False, None, {"code": "ERR_NOT_FOUND", "message": "Work item not found"}
             return True, {"item": item}, None
+        if name == "get_work_content":
+            slug = arguments.get("slug")
+            if not slug:
+                return False, None, {"code": "ERR_BAD_REQUEST", "message": "Missing 'slug'"}
+            try:
+                content = get_work_content(slug)
+            except FileNotFoundError:
+                return False, None, {"code": "ERR_NOT_FOUND", "message": "Content not found"}
+            return True, {"content": content}, None
         if name == "list_experience":
             return True, {"items": get_experience()}, None
         if name == "list_skills":
