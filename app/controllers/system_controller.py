@@ -36,6 +36,7 @@ async def index() -> IndexResponse:
         IndexResource(name="availability", method="GET", path="/v1/availability", description="Free/busy windows"),
         IndexResource(name="availability_hold", method="POST", path="/v1/availability/hold", description="Create temporary hold"),
         IndexResource(name="chat", method="POST", path="/v1/chat/ask", description="Ask portfolio assistant"),
+        IndexResource(name="time_now", method="GET", path="/v1/time/now", description="Current date/time in GMT+7 (Asia/Bangkok)"),
         IndexResource(name="mcp_execute", method="POST", path="/v1/mcp/execute", description="Forward MCP request to n8n or echo"),
     ]
     return IndexResponse(resources=resources)

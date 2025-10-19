@@ -216,3 +216,20 @@ class WorkContentResponse(BaseModel):
     slug: str
     format: str = Field(description="Content format, e.g., markdown or html")
     content: str
+
+
+# New: current time (GMT+7) response schema
+class CurrentTimeResponse(BaseModel):
+    time_zone: str = Field(description="IANA time zone, e.g., Asia/Bangkok")
+    offset: str = Field(description="UTC offset in +HH:MM format")
+    datetime_iso: datetime = Field(description="Current time in GMT+7 (timezone-aware)")
+    date: str = Field(description="YYYY-MM-DD in GMT+7")
+    time: str = Field(description="HH:MM:SS in GMT+7")
+    year: int
+    month: int
+    day: int
+    hour: int
+    minute: int
+    second: int
+    weekday: str = Field(description="Weekday name in English, e.g., Monday")
+    tz_abbr: str = Field(description="Time zone abbreviation, e.g., +07 or ICT")

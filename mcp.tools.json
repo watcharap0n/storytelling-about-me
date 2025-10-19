@@ -74,6 +74,12 @@
     "endpoint": {"method": "GET", "path": "/v1/availability"}
   },
   {
+    "name": "get_current_time_gmt7",
+    "description": "Return the current date/time in GMT+7 (Asia/Bangkok). Use this for booking to avoid UTC mistakes.",
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "endpoint": {"method": "GET", "path": "/v1/time/now"}
+  },
+  {
     "name": "send_contact_message",
     "description": "Submit a contact message and create a ticket via n8n.",
     "input_schema": {

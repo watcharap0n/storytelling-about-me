@@ -21,6 +21,7 @@ from app.services.availability_service import filter_availability
 from app.services.chat_service import answer_question
 from app.services.contact_service import submit_contact_message
 from app.services.content_service import get_work_content  # added
+from app.services.time_service import get_current_time_gmt7  # new
 
 
 def _load_mcp_tools() -> List[Dict[str, Any]]:
@@ -110,6 +111,9 @@ async def _execute_local_tool(name: str, arguments: Dict[str, Any]) -> Tuple[boo
         if name == "get_availability":
             range_param = arguments.get("range")
             return True, filter_availability(range_param), None
+        if name == "get_current_time_gmt7":
+            # No arguments required
+            return True, {"now": get_current_time_gmt7()}, None
         if name == "send_contact_message":
             required = ["name", "email", "message"]
             if any(not arguments.get(k) for k in required):
@@ -190,7 +194,7 @@ async def forward_jsonrpc_to_n8n(payload: Dict[str, Any]) -> Tuple[bool, bool, O
             # Format as MCP content array (text)
             try:
                 import json as _json
-                text_content = _json.dumps(result, ensure_ascii=False)
+                text_content = _json.dumps(result, ensure_ascii=False, default=str)
             except Exception:
                 text_content = str(result)
             return True, False, {
